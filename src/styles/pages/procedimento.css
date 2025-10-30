@@ -1,0 +1,179 @@
+/* Página: Procedimento */
+.procedimento-section {
+  background: var(--color-bg-white);
+  position: relative;
+  padding-bottom: 6rem;
+}
+
+.procedimento-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 14rem;
+  right: 14rem;
+  height: 1px;
+  background: var(--color-dark);
+}
+
+.procedimento-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.procedimento-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* Title */
+.procedimento-title {
+  font-family: DM Sans;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 65px;
+  line-height: 100%;
+  letter-spacing: -3px; 
+}
+
+.procedimento-title-highlight {
+  color: var(--color-gold);
+}
+
+/* Intro Paragraph */
+.procedimento-intro {
+  font-family: DM Sans;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 16px;
+  line-height: 25px;
+  letter-spacing: 0px;
+}
+
+/* Items Container */
+.procedimento-items {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.procedimento-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.procedimento-item-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.procedimento-item-line {
+  width: 2rem;
+  height: 2px;
+  background: var(--color-dark);
+}
+
+.procedimento-item-title {
+  font-family: DM Sans;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 17px;
+  line-height: 100%;
+  letter-spacing: 0px;
+}
+
+.procedimento-item-text {
+  font-family: DM Sans;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 16px;
+  line-height: 25px;
+  letter-spacing: 0px;
+  padding-right: 150px;
+  padding-bottom: 30px;
+}
+
+/* Image */
+.procedimento-image-card {
+  height: 100%;
+  min-height: 40rem;
+  border-radius: 10px;
+  overflow: hidden;
+  position: sticky;
+  top: 2rem;
+}
+
+.procedimento-image-card > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Responsividade Procedimento */
+@media (max-width: 1024px) {
+  .procedimento-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .procedimento-section::after {
+    left: 2rem;
+    right: 2rem;
+  }
+
+  .procedimento-item-text {
+    padding-right: 0;
+  }
+
+  .procedimento-image-card {
+    position: relative;
+    min-height: 25rem;
+    top: 0;
+  }
+
+  .procedimento-title {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 767px) {
+  .procedimento-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .procedimento-section {
+    padding-bottom: 3rem;
+  }
+
+  .procedimento-section::after {
+    left: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .procedimento-title {
+    font-size: 32px;
+    line-height: 110%;
+  }
+
+  .procedimento-intro {
+    font-size: 15px;
+  }
+
+  .procedimento-item-text {
+    padding-right: 0;
+    padding-bottom: 20px;
+    font-size: 15px;
+  }
+
+  .procedimento-image-card {
+    position: relative;
+    min-height: 20rem;
+    top: 0;
+  }
+}
+

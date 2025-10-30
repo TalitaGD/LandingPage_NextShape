@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Cores Principais */
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+    --color-dark: #333333;
+    --color-dark-hover: #222222;
+    --color-gold: #C4A96C;
+    --color-gold-hover: #ac945c;
+    
+    /* Cores de Fundo */
+    --color-bg-gray-light: #f9fafb;
+    --color-bg-gray-very-light: #FAFAFA;
+    --color-bg-white: #FFFFFF;
+    
+    /* Cores do Footer */
+    --color-footer-bg: #2b2b2b;
+    --color-footer-text: #d1d5db;
+    --color-footer-text-secondary: #9ca3af;
+    --color-footer-title: #e5e7eb;
+    --color-footer-divider: rgba(255, 255, 255, 0.15);
+    --color-footer-headline: rgba(255, 255, 255, 0.08);
+    
+    /* Cores de Texto */
+    --color-text-primary: #333333;
+    --color-text-dark: #111827;
+    --color-text-gray-dark: #1f2937;
+    --color-text-gray: #4b5563;
+    --color-text-gray-medium: #6b7280;
+    --color-text-white: #FFFFFF;
+    
+    /* Cores de Produtos */
+    --color-product-aesthetic: #B5AAC4;
+    --color-product-skin: #F8D2C6;
+    --color-product-hair: #D2EAB3;
+    --color-product-gradient-purple: #8B5CF6;
+    
+    /* Overlays e Transparências */
+    --color-overlay-dark-60: rgba(0, 0, 0, 0.6);
+    --color-overlay-dark-40: rgba(0, 0, 0, 0.4);
+    --color-overlay-white-80: rgba(255, 255, 255, 0.80);
+    --color-overlay-white-70: rgba(255, 255, 255, 0.70);
+    --color-overlay-white-15: rgba(255, 255, 255, 0.15);
+    --color-overlay-white-08: rgba(255, 255, 255, 0.08);
+    --color-overlay-gold-10: rgba(196, 169, 108, 0.1);
+    
+    /* Bordas e Divisores */
+    --color-border-gray: #e5e7eb;
+    
+    /* Cores Legadas (manter por compatibilidade temporária) */
+    --white: var(--color-white);
+    --dark-333: var(--color-dark);
+    --gold: var(--color-gold);
+    --gray-fafafa: var(--color-bg-gray-very-light);
+    --black: var(--color-black);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+}
