@@ -6,12 +6,15 @@ import QuemSomos from '../pages/QuemSomos';
 import Produtos from '../pages/Produtos';
 import Procedimento from '../pages/Procedimento';
 import Telemedicina from '../pages/Telemedicina';
+import ScrollToTop from '../components/ScrollToTop';
+import RouteScrollToTop from '../components/RouteScrollToTop';
 
 function AppRouter() {
   return (
     <StrictMode>
       <HeroUIProvider>
         <BrowserRouter>
+          <RouteScrollToTop />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/quem-somos" element={<QuemSomos />} />
@@ -19,6 +22,7 @@ function AppRouter() {
             <Route path="/procedimento" element={<Procedimento />} />
             <Route path="/telemedicina" element={<Telemedicina />} />
           </Routes>
+          <ScrollToTop />
         </BrowserRouter>
       </HeroUIProvider>
     </StrictMode>

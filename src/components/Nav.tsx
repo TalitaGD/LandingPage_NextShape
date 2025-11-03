@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import { X } from 'lucide-react';
 
 type NavProps = {
   variant?: 'overlay' | 'solid';
@@ -7,10 +8,28 @@ type NavProps = {
 
 function Nav({ variant = 'overlay' }: NavProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
   const navigate = useNavigate();
   
-  const logoPath = variant === 'solid' ? '/assets/logo-dark.png' : '/assets/logo.png';
   const isOverlay = variant === 'overlay';
+  
+  // Detecta se está em desktop para ajustar o logo
+  useEffect(() => {
+    const checkDesktop = () => {
+      setIsDesktop(window.innerWidth >= 768);
+    };
+    
+    checkDesktop();
+    window.addEventListener('resize', checkDesktop);
+    
+    return () => window.removeEventListener('resize', checkDesktop);
+  }, []);
+  
+  // Em desktop com overlay, usa logo escuro (background branco)
+  // Em mobile ou solid, usa a lógica original
+  const logoPath = (isDesktop && isOverlay) || variant === 'solid' 
+    ? '/assets/logo-dark.png' 
+    : '/assets/logo.png';
   
   // Adiciona/remove classe no body quando o menu está aberto
   useEffect(() => {
@@ -99,16 +118,22 @@ function Nav({ variant = 'overlay' }: NavProps) {
             ))}
           </ul>
 
-          {/* Hamburger Button */}
+          {/* Hamburger Button / X Icon */}
           <button
             className={`nav-hamburger ${isMenuOpen ? 'open' : ''}`}
             onClick={toggleMenu}
             aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
             aria-expanded={isMenuOpen}
           >
-            <span className="hamburger-line"></span>
-            <span className="hamburger-line"></span>
-            <span className="hamburger-line"></span>
+            {isMenuOpen ? (
+              <X size={24} className="nav-close-icon" />
+            ) : (
+              <>
+                <span className="hamburger-line"></span>
+                <span className="hamburger-line"></span>
+                <span className="hamburger-line"></span>
+              </>
+            )}
           </button>
         </div>
       </nav>

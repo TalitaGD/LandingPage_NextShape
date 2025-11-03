@@ -4,6 +4,10 @@
   position: relative;
 }
 
+.produtos-section:first-of-type {
+  padding-top: 10rem;
+}
+
 .produtos-section:not(:last-child)::after {
   content: '';
   position: absolute;
@@ -135,6 +139,10 @@
   .produtos-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+
+  .produtos-section:first-of-type {
+    padding-top: 6rem;
   }
 
   .produtos-section::after {

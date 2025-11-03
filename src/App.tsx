@@ -1,11 +1,14 @@
 import './app.css';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { Button } from '@heroui/react';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 import Faq from './components/Faq';
 
 function App() {
+  const parallaxSectionRef = useRef<HTMLElement>(null);
+
   useEffect(() => {
     // Scroll to hash anchor if present
     const handleHashChange = () => {
@@ -28,6 +31,36 @@ function App() {
     
     return () => {
       window.removeEventListener('hashchange', handleHashChange);
+    };
+  }, []);
+
+  useEffect(() => {
+    // Efeito de paralaxe
+    const handleScroll = () => {
+      if (!parallaxSectionRef.current) return;
+
+      const section = parallaxSectionRef.current;
+      const rect = section.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      
+      // Verifica se a seção está visível na viewport
+      if (rect.bottom >= 0 && rect.top <= windowHeight) {
+        const parallaxSpeed = 0.5;
+        // Calcula o deslocamento baseado na posição da seção
+        // Quando a seção está no topo, yPos = 0
+        // Quando a seção sai da tela, yPos aumenta
+        const scrolled = window.pageYOffset;
+        const sectionTop = section.offsetTop;
+        const yPos = (scrolled - sectionTop) * parallaxSpeed;
+        section.style.backgroundPosition = `center ${yPos}px`;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Chama uma vez para posicionar inicialmente
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -60,7 +93,9 @@ function App() {
                 Descubra um novo jeito de cuidar do seu corpo sem sair de casa!
               </p>
             </div>
-            <button className="btn btn--dark">Começar sua transformação</button>
+            <Button color="primary" variant="shadow" className="btn btn--dark">
+              Começar sua transformação
+            </Button>
           </div>
 
           {/* Black Card with DNA */}
@@ -81,7 +116,15 @@ function App() {
                   </p>
                 </div>
                 <div>
-                  <Link to="/procedimento" className="btn btn--yellow">Otimize seu emagrecimento!</Link>
+                  <Button 
+                    as={Link}
+                    to="/procedimento"
+                    color="primary"
+                    variant="shadow"
+                    className="btn btn--yellow"
+                  >
+                    Otimize seu emagrecimento!
+                  </Button>
                 </div>
               </div>
             </div>
@@ -112,7 +155,11 @@ function App() {
       </section>
 
       {/* Third Section - Full Width Image with Text */}
-      <section className="third-section" style={{ backgroundImage: 'url(assets/imagem/woman-gym.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <section 
+        ref={parallaxSectionRef}
+        className="third-section" 
+        style={{ backgroundImage: 'url(assets/imagem/woman-gym.png)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'initial' }}
+      >
         <div className="overlay-gradient"></div>
         <div className="third-inner">
           <div className="container third-container" style={{ display: 'flex', justifyContent: 'flex-start' }}>
@@ -126,9 +173,16 @@ function App() {
                 praticidade e segurança em todo o Brasil, tudo realizado por<br />
                 Teleconsultas!
               </p>
-              <Link to="/telemedicina" className="btn btn--yellow" style={{ paddingLeft: '2.5rem', paddingRight: '2.5rem' }}>
+              <Button
+                as={Link}
+                to="/telemedicina"
+                color="primary"
+                variant="shadow"
+                className="btn btn--yellow"
+                style={{ paddingLeft: '2.5rem', paddingRight: '2.5rem' }}
+              >
                 Saiba mais sobre as Teleconsultas
-              </Link>
+              </Button>
             </div>
           </div>
         </div>
@@ -147,9 +201,9 @@ function App() {
                 resultados incríveis<br />
                 e duradouros.
               </h2>
-              <button className="btn btn--yellow">
+              <Button color="primary" variant="shadow" className="btn btn--yellow">
                 Iniciar minha transformação
-              </button>
+              </Button>
             </div>
             <div className="testimonials-videos">
               <div className="video-card">
@@ -257,7 +311,9 @@ function App() {
                 Tire suas dúvidas sobre o programa NextShape!<br />
                 Ou entre em contato com nosso time!
               </p>
-              <button className="btn btn--yellow">Quero agendar</button>
+              <Button color="primary" variant="shadow" className="btn btn--yellow">
+                Quero agendar
+              </Button>
               <p className="faq-note">
                 Nosso time atua <strong>24h</strong> para melhor te atender, faça um agendamento agora mesmo!
               </p>

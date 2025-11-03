@@ -2,6 +2,7 @@
 .procedimento-section {
   background: var(--color-bg-white);
   position: relative;
+  padding-top: 8rem;
   padding-bottom: 6rem;
 }
 
@@ -147,6 +148,7 @@
   }
 
   .procedimento-section {
+    padding-top: 6rem;
     padding-bottom: 3rem;
   }
 

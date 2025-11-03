@@ -1,3 +1,4 @@
+import { Button } from '@heroui/react';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import Faq from '../components/Faq';
@@ -77,25 +78,24 @@ function Telemedicina() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="section section--white">
+        {/* FAQ (Accordion) */}
+        <section className="section section--white">
         <div className="container">
-          <div className="grid-2" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0,1fr))', gap: '4rem', alignItems: 'start' }}>
+          <div className="faq-section">
             <div>
               <h2 className="faq-title">
                 Perguntas<br />
                 frequentes
               </h2>
               <p className="faq-sub">
-                Tire suas dúvidas sobre o programa NextShape!
-                <br />
+                Tire suas dúvidas sobre o programa NextShape!<br />
                 Ou entre em contato com nosso time!
               </p>
-              <button className="btn btn--yellow">Quero agendar</button>
+              <Button color="primary" variant="shadow" className="btn btn--yellow">
+                Quero agendar
+              </Button>
               <p className="faq-note">
-                Nosso time atua <strong>24h</strong> para melhor te atender, faça
-                <br />
-                um agendamento agora mesmo!
+                Nosso time atua <strong>24h</strong> para melhor te atender, faça um agendamento agora mesmo!
               </p>
             </div>
             <Faq />

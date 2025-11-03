@@ -1,4 +1,6 @@
 import '../styles/components/footer.css';
+import { Instagram, MessageCircle } from 'lucide-react';
+
 function Footer() {
   return (
     <footer className="footer">
@@ -19,27 +21,37 @@ function Footer() {
           <div className="footer-col footer-col--right">
             <h4 className="footer-title">Nossas redes</h4>
             <div className="footer-social">
-              <a className="social-icon" href="#" aria-label="Instagram">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z" stroke="#C4A96C" strokeWidth="1.5"/>
-                  <circle cx="12" cy="12" r="3.5" stroke="#C4A96C" strokeWidth="1.5"/>
-                  <circle cx="17.5" cy="6.5" r="1" fill="#C4A96C"/>
-                </svg>
+              <a 
+                className="social-icon" 
+                href="https://www.instagram.com/nextshape.br?igsh=MXR5bmNheDR6bmx3cQ%3D%3D&utm_source=qr" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
+                <Instagram size={24} className="social-icon-svg" />
               </a>
-              <a className="social-icon" href="#" aria-label="WhatsApp">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M20 12a8 8 0 0 1-11.8 7l-3.2 1 1-3.1A8 8 0 1 1 20 12z" stroke="#C4A96C" strokeWidth="1.5"/>
-                  <path d="M8.5 9.5c.4 2 2.5 3.9 4.1 4.4.5.1 1-.1 1.3-.6l.5-.7a.7.7 0 0 0-.2-.9l-1-.6a.7.7 0 0 0-.9.1l-.2.2c-.4-.1-1.5-.7-2.1-1.6-.3-.4-.1-.8 0-1l.2-.3a.7.7 0 0 0-.2-.9l-.8-.6a.7.7 0 0 0-1 .2l-.4.6c-.2.2-.3.6-.3.7z" fill="#C4A96C"/>
-                </svg>
+              <a 
+                className="social-icon" 
+                href="#" 
+                aria-label="WhatsApp"
+              >
+                <MessageCircle size={24} className="social-icon-svg" />
               </a>
             </div>
             <div className="footer-credit">
               design by
-              <img
-                src="/assets/logo-zainy.png"
-                alt="Zainy"
-                className="footer-credit-logo"
-              />
+              <a 
+                href="https://www.zainy.com.br/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Zainy"
+              >
+                <img
+                  src="/assets/logo-zainy.png"
+                  alt="Zainy"
+                  className="footer-credit-logo"
+                />
+              </a>
             </div>
           </div>
         </div>
