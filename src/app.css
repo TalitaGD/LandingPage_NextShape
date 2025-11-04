@@ -220,7 +220,7 @@
 }
 
 .nav-overlay {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgb(255, 255, 255);
 }
 
 .nav-container {
@@ -258,7 +258,7 @@
 
   /* Nav com background branco transparente e texto preto em desktop */
   .nav-overlay {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgb(255, 255, 255);
     color: var(--color-black);
   }
 
@@ -344,6 +344,13 @@
 
 .nav-solid .hamburger-line {
   background-color: var(--color-black);
+}
+
+/* No mobile, hambúrguer sempre preto */
+@media (max-width: 767px) {
+  .hamburger-line {
+    background-color: var(--color-black);
+  }
 }
 
 /* Ícone X quando o menu está aberto */
@@ -1077,7 +1084,12 @@
   }
 
   .nav-overlay {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgb(255, 255, 255);
+  }
+
+  /* No mobile, textos sempre pretos */
+  .nav-link-overlay {
+    color: var(--color-black) !important;
   }
 
   .nav-container {

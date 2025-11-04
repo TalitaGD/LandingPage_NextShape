@@ -26,8 +26,9 @@ function Nav({ variant = 'overlay' }: NavProps) {
   }, []);
   
   // Em desktop com overlay, usa logo escuro (background branco)
-  // Em mobile ou solid, usa a lógica original
-  const logoPath = (isDesktop && isOverlay) || variant === 'solid' 
+  // Em mobile sempre usa logo escuro (preto)
+  // Em solid sempre usa logo escuro
+  const logoPath = (isDesktop && isOverlay) || variant === 'solid' || !isDesktop
     ? '/assets/logo-dark.png' 
     : '/assets/logo.png';
   
